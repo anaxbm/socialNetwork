@@ -3,7 +3,7 @@ import {timeLine} from './routes/timeLine.js';
 import {login} from './routes/login.js';
 
 //Connect with html
-const root = document.getElementById('root');//In this node is where everything is render
+ export const root = document.getElementById('root');//In this node is where everything is render
 
 const routes = { //Object that contains the routes and what to render
     '/': login,
