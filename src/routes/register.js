@@ -1,20 +1,25 @@
-import { onNavigate } from './main.js';
+import { onNavigate } from '../main.js';
 
-export const register = () => {
+export const Register = () => {
   const div = document.createElement('div');
   const title = document.createElement('h2');
-  const buttonLogin = document.createElement('button');
+  const button = document.createElement('button');
+  const buttonBack = document.createElement('button');
   const inputEmail = document.createElement('input');
-  const inputPassWord = document.createElement('input');
-  const buttonRegister = document.createElement('button');
+  const inputPass = document.createElement('input');
 
-  title.textContent = 'BIENVENIDO A ANIMAL PAWNET';
-  buttonRegister.textContent = 'Registrate';
+  button.textContent = 'Crear cuenta';
+  buttonBack.textContent = 'Regresa';
+  title.textContent = 'Registro de nueva cuenta';
 
-  buttonRegister.addEventListener('click', () => {
-    onNavigate('/register'); // falta el archivo de registro
+  button.addEventListener('click', () => {
+    onNavigate('/login');
   });
-  div.append(title, inputEmail, inputPassWord, buttonLogin, buttonRegister);
+  buttonBack.addEventListener('click', () => {
+    onNavigate('/');
+  });
+
+  div.append(title, inputEmail, inputPass, button, buttonBack);
 
   return div;
 };
