@@ -1,4 +1,4 @@
-import { root } from '../main';
+import { root } from './main.js';
 
 export const timeLine = function () {
   const timeLineContainer = document.createElement('section'); /* contenedor principal de los otros dos divs */
