@@ -9,8 +9,7 @@ export const register = () => {
   const buttonRegister = document.createElement('button');
 
   title.textContent = 'BIENVENIDO A ANIMAL PAWNET';
-  buttonLogin.textContent = 'Inicia sesión';
-  buttonRegister.textContent = 'registrate';
+  buttonRegister.textContent = 'Registrate';
 
   buttonRegister.addEventListener('click', () => {
     onNavigate('/register'); // falta el archivo de registro
