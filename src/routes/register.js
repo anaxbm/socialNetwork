@@ -1,25 +1,39 @@
 import { onNavigate } from '../main.js';
 
-export const Register = () => {
-  const div = document.createElement('div');
+export const register = () => {
+  const imgBackground = document.createElement('img');
+  imgBackground.setAttribute('src', './images/inicio_de_sesión.png');
+  imgBackground.setAttribute('class', 'register-background');
+  const section = document.createElement('section');
+  section.setAttribute('class', 'register');
   const title = document.createElement('h2');
-  const button = document.createElement('button');
-  const buttonBack = document.createElement('button');
+  title.setAttribute('class', 'title');
+  const registerButton = document.createElement('button');
+  const googleButton = document.createElement('button');
   const inputEmail = document.createElement('input');
+  const emailOne = document.createElement('p');
+  const confirmEmail = document.createElement('input');
+  const emailTwo = document.createElement('p');
   const inputPass = document.createElement('input');
+  const passOne = document.createElement('p');
+  const confirmPass = document.createElement('input');
+  const passTwo = document.createElement('p');
 
-  button.textContent = 'Crear cuenta';
-  buttonBack.textContent = 'Regresa';
-  title.textContent = 'Registro de nueva cuenta';
+  registerButton.textContent = 'Registrarse';
+  googleButton.textContent = 'continuar con Google';
+  title.textContent = 'Animal Pawnet';
+  emailOne.textContent = 'Correo electrónico';
+  emailTwo.textContent = 'Confirmar correo electrónico';
+  passOne.textContent = 'Contraseña';
+  passTwo.textContent = 'Confirmar contraseña';
 
-  button.addEventListener('click', () => {
-    onNavigate('/login');
-  });
-  buttonBack.addEventListener('click', () => {
+  registerButton.addEventListener('click', () => {
     onNavigate('/');
   });
+  googleButton.addEventListener('click', () => {
+  });
 
-  div.append(title, inputEmail, inputPass, button, buttonBack);
+  section.append(title, inputEmail, emailOne, confirmEmail, emailTwo, inputPass, passOne, confirmPass, passTwo, registerButton, googleButton);
 
-  return div;
+  return section;
 };
