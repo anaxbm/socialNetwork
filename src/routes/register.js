@@ -1,11 +1,15 @@
 import { onNavigate } from '../main.js';
 
 export const register = () => {
-  const imgBackground = document.createElement('img');
-  imgBackground.setAttribute('src', './images/inicio_de_sesión.png');
-  imgBackground.setAttribute('class', 'register-background');
-  const section = document.createElement('section');
-  section.setAttribute('class', 'register');
+  const sectionEmail = document.createElement('section');
+  sectionEmail.setAttribute('class', 'registerEmail');
+  const sectionPass = document.createElement('sectionPass');
+  sectionPass.setAttribute('class', 'register');
+  const sectionButton = document.createElement('section');
+  sectionButton.setAttribute('class', 'registerButton');
+  const sectionAll = document.createElement('section');
+  sectionAll.setAttribute('class', 'register');
+
   const title = document.createElement('h2');
   title.setAttribute('class', 'title');
   const registerButton = document.createElement('button');
@@ -33,7 +37,10 @@ export const register = () => {
   googleButton.addEventListener('click', () => {
   });
 
-  section.append(title, inputEmail, emailOne, confirmEmail, emailTwo, inputPass, passOne, confirmPass, passTwo, registerButton, googleButton);
+  sectionEmail.append(title, inputEmail, emailOne, confirmEmail, emailTwo);
+  sectionPass.append(inputPass, passOne, confirmPass, passTwo);
+  sectionButton.append(registerButton, googleButton);
+  sectionAll.append(sectionEmail, sectionPass, sectionButton);
 
-  return section;
+  return sectionAll;
 };

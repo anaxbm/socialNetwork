@@ -1,7 +1,6 @@
 // import pages
-import { timeLine } from './routes/timeLine.js';
+// import { timeLine } from './routes/timeLine.js';
 import { login } from './routes/login.js';
-// eslint-disable-next-line import/no-cycle, import/named
 import { register } from './routes/register.js';
 
 // Connect with html
@@ -9,7 +8,7 @@ export const root = document.getElementById('root');// In this node is where eve
 
 const route = { // Object that contains the routes and what to render
   '/': login,
-  '/timeLine': timeLine,
+  // '/timeLine': timeLine,
   '/register': register,
 };
 export const onNavigate = (pathname) => { // Takes pathname and render section according to it
