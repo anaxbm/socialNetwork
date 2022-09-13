@@ -1,8 +1,65 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * {   /* selectoe universar para eliminar todos espacios que viene por defecto en los navegadores debido a las etiquetas*/ 
     margin: 0px;  
     padding: 0px;
       /*margin, border y padding pasan a formar parte del cálculo del ancho de la caja y no lo suman posteriormente*/
 }
+/*Register style begins*/
 
 body{
     background-image: url("/images/registro_fondo.jpg");
@@ -87,3 +144,4 @@ hr {
     border-radius: 18px;
 
   }
+  /*Register style ends*/
