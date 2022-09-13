@@ -17,7 +17,6 @@ export const onNavigate = (pathname) => { // Takes pathname and render section a
     window.location.origin + pathname, // Domian or url
   );
   root.removeChild(root.firstChild);//
-
   root.appendChild(routes[pathname]());// Run the function to enter the pathname received
 };
 const pages = routes[window.location.pathname];// Render to "/"
