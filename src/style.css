@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+body {
+    height: 100vh;
+    background-color: blueviolet;
+}
+#root{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color:deeppink;
+    justify-content: center;
+}
+.mainTimeline-Container{
+    background-color: aqua;
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.createPostTLContainer{
+    height: 20vh;
+    width: 80%;
+    background-color: rgb(74, 84, 92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.inputText{
+    width: 40rem;
+    height: 6rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+}
+.postButton{
+    width: 8rem;
+    height: 2.5rem;
+    margin-left: 25rem;
+    font-size: 1.3rem;
+    background-color: #E8D3FF;
+}
+.userContainer{
+    height: 60vh;
+    width: 80%;
+    background-color: coral;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+.userNameContainer{
+    height: 5rem;
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.userPicture{
+    height: 3rem;
+    width: 3rem;
+}
+.iconsContainer{
+    height: 10vh;
+    width: 80%;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid, navy, 1px;
+}
+.contentPostContainer{
+    height: 20vh;
+    width: 80%;
+    background-color: aquamarine;
+}
+.iconImages{
+    height: 2rem;
+    width: 2rem;
+}
+.menuBarImages{
+    height: 2rem;
+    width: 2rem;
+
+}
+@media only screen and (max-width: 700px){
+    
+    
+    
+}
