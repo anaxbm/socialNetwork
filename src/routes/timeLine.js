@@ -7,6 +7,7 @@ export const timeLine = () => {
   const postingButton = document.createElement("button");
   const postsContainer = document.createElement("article");
   const userPicture = document.createElement("img");
+  /*const UserPostPicture = document.createElement("img");*/
   const userName = document.createElement("h4");
   const userContainer = document.createElement("div");
   const userNameContainer = document.createElement("div");
@@ -44,6 +45,7 @@ export const timeLine = () => {
   inputText.type = "text";
   postingButton.textContent = "publicar";
   userPicture.src = "./images/usuario.png";
+  UserPostPicture.src = "./images/usuario.png";
   userName.textContent = "Adahi Gallardo";
   iconsImages_1.src = "./images/bin.png";
   iconsImages_2.src = "./images/edit.png";
