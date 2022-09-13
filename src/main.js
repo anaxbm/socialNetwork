@@ -1,12 +1,9 @@
-
 import { timeLine } from './routes/timeLine.js';
 import { login } from './routes/login.js';
 import { register } from './routes/register.js';
 
-
 // Connect with html
 export const root = document.getElementById('root');// In this node is where everything is render
-
 
 const routes = { // Object that contains the routes and what to render
   '/': login,
@@ -24,7 +21,6 @@ export const onNavigate = (pathname) => { // Takes pathname and render section a
   root.appendChild(routes[pathname]());// Run the function to enter the pathname received
 };
 const pages = routes[window.location.pathname];// Render to "/"
-
 
 window.onpopstate = () => {
   root.removeChild(root.firstChild);

@@ -1,25 +1,6 @@
-
 import { onNavigate } from '../main.js';
 
 export const login = () => {
-  const div = document.createElement("div");
-  const title = document.createElement("h2");
-  const buttonLogin = document.createElement("button");
-  const inputEmail = document.createElement("input");
-  const inputPassWord = document.createElement("input");
-  const buttonRegister = document.createElement("button");
-
-
-  // const div = document.createElement('div');
-
-  // section header
-  /* const headerLogin = document.createElement('header');
-  headerLogin.setAttribute('class', 'login-header');
-  const title = document.createElement('h2');
-  title.textContent = 'BIENVENIDO A ANIMAL PAWNET';
-  appends the header title
-  headerLogin.append(title); */
-
   // section main of login padre
   const mainLogin = document.createElement('main');
   mainLogin.setAttribute('class', 'login-main');
@@ -35,11 +16,11 @@ export const login = () => {
   sectionInputs.setAttribute('class', 'section_imputs');
 
   const inputEmail = document.createElement('input');
-  inputEmail.setAttribute('class', 'email_input');
+  inputEmail.setAttribute('class', 'inputs');
   const email = document.createElement('p');
   email.textContent = 'Email';
   const inputPassWord = document.createElement('input');
-  inputPassWord.setAttribute('class', 'pasword_imput');
+  inputPassWord.setAttribute('class', 'inputs');
   const pasword = document.createElement('p');
   pasword.textContent = 'pasword';
 
@@ -67,7 +48,4 @@ export const login = () => {
   mainLogin.append(sectionLogin);
 
   return mainLogin;
-
-
-  return div;
 };
