@@ -1,73 +1,74 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 * {   /* selectoe universar para eliminar todos espacios que viene por defecto en los navegadores debido a las etiquetas*/ 
-    margin: 0px;  
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
       /*margin, border y padding pasan a formar parte del cálculo del ancho de la caja y no lo suman posteriormente*/
 }
-/*Register style begins*/
-
-body{
-    background-image: url("/images/registro_fondo.jpg");
+/*Login style begins*/
+.login-main {
+    background-image: url('/images/inicio_de_sesión.png');
     background-repeat: no-repeat;
-    background-size: cover;
+    width: 100vw;
+	height: 100vh;
 }
 
-.register{
+.section_login {
+    position: absolute;
+    left: 9.38%;
+    right: 19.69%;
+    top: 7%;
+    bottom: 30.32%;
+    border-radius: 18px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+    padding: 2%;
+}
+
+.inputs {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: rgba(198, 206, 255, 0);
+    padding: 1%;
+   
+}
+
+#log-in {
+    position: absolute;
+    width: 140px;
+    height: 34px;
+    left: 24.38%;
+    right: 19.69%;
+    top: 68%;
+    background: #C6CFFF;
+    border-radius: 18px;
+}
+
+#register {
+    position: absolute;
+    width: 140px;
+    height: 34px;
+    left: 24.38%;
+    right: 19.69%;
+    top: 93%;
+    background: #C6CFFF;
+    border-radius: 18px;
+}
+/*Login style ends*/
+
+/*Register style begins*/
+
+.mainRegister{
+    background-image: url('./images/registro_fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+	height: 100vh;
+}
+
+.sectionRegister{
 display: flex;
 position: absolute;
 left: 19.38%;
@@ -88,7 +89,7 @@ align-items: center;
    margin: 1%;                                               
 }
 
-p{
+.p{
 margin: 2%;
 font-family: 'Inter';
 font-style: normal;
@@ -100,7 +101,7 @@ align-items: center;
 color: #000000;
 }
 
-input {
+.inputRegister {
     margin-top: 5%;
     border: none;
     border-bottom: 1px solid black;
@@ -124,7 +125,7 @@ input {
     flex-direction: row;
     justify-content: center;
 }
-hr {
+.hr {
     height: 1px;
     width: 80px;
     background-color: black;
@@ -145,3 +146,97 @@ hr {
 
   }
   /*Register style ends*/
+
+/*timeLine style begins*/
+/*body {
+    height: 100vh;
+    background-color: blueviolet;
+}
+#root{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color:deeppink;
+    justify-content: center;
+}*/
+.mainTimeline-Container{
+    background-color: aqua;
+    height: 100vh;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.createPostTLContainer{
+    height: 20vh;
+    width: 80%;
+    background-color: rgb(74, 84, 92);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.inputText{
+    width: 40rem;
+    height: 6rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+}
+.postButton{
+    width: 8rem;
+    height: 2.5rem;
+    margin-left: 25rem;
+    font-size: 1.3rem;
+    background-color: #E8D3FF;
+}
+.userContainer{
+    height: 60vh;
+    width: 80%;
+    background-color: coral;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+}
+.userNameContainer{
+    height: 5rem;
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.userPicture{
+    height: 3rem;
+    width: 3rem;
+}
+.iconsContainer{
+    height: 10vh;
+    width: 80%;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*border: 1px, solid, navy;*/
+}
+.contentPostContainer{
+    height: 20vh;
+    width: 80%;
+    background-color: aquamarine;
+}
+.iconImages{
+    height: 2rem;
+    width: 2rem;
+}
+.menuBarImages{
+    height: 2rem;
+    width: 2rem;
+
+}
+/*
+@media only screen and (max-width: 700px){
+    
+    
+    }*/
+/*timeLine style begins*/
