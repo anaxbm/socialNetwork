@@ -1,5 +1,5 @@
-// import pages
-// import { timeLine } from './routes/timeLine.js';
+
+import { timeLine } from './routes/timeLine.js';
 import { login } from './routes/login.js';
 import { register } from './routes/register.js';
 
@@ -10,7 +10,7 @@ export const root = document.getElementById('root');// In this node is where eve
 
 const routes = { // Object that contains the routes and what to render
   '/': login,
-  // '/timeLine': timeLine,
+  '/timeLine': timeLine,
   '/register': register,
 };
 export const onNavigate = (pathname) => { // Takes pathname and render section according to it
@@ -24,6 +24,7 @@ export const onNavigate = (pathname) => { // Takes pathname and render section a
   root.appendChild(routes[pathname]());// Run the function to enter the pathname received
 };
 const pages = routes[window.location.pathname];// Render to "/"
+
 
 window.onpopstate = () => {
   root.removeChild(root.firstChild);

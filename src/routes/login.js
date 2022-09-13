@@ -1,6 +1,14 @@
+
 import { onNavigate } from '../main.js';
 
 export const login = () => {
+  const div = document.createElement("div");
+  const title = document.createElement("h2");
+  const buttonLogin = document.createElement("button");
+  const inputEmail = document.createElement("input");
+  const inputPassWord = document.createElement("input");
+  const buttonRegister = document.createElement("button");
+
 
   // const div = document.createElement('div');
 
@@ -60,4 +68,6 @@ export const login = () => {
 
   return mainLogin;
 
+
+  return div;
 };
