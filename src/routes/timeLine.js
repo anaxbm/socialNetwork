@@ -1,3 +1,4 @@
+
 //Creating elements
 export const timeLine = () => {
   /* contenedor principal de los otros dos divs*/
@@ -78,3 +79,4 @@ export const timeLine = () => {
 
   return timeLineContainer;
 };
+
