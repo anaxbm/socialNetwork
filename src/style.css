@@ -248,7 +248,7 @@ body {
     height: auto; 
     width: 80%;
     min-height: 20vh;
-    border: 1px sol #000000;
+    border: 1px solid #000000;
     /*background-color: aquamarine;*/
 }
 .iconImages{
