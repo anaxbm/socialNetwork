@@ -1,21 +1,15 @@
 * {   /* selectoe universar para eliminar todos espacios que viene por defecto en los navegadores debido a las etiquetas*/ 
-   
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 62.5%;
-
       /*margin, border y padding pasan a formar parte del cálculo del ancho de la caja y no lo suman posteriormente*/
 }
-
-main {
-    background-image: url(images/inicio_de_sesión.png);
+/*Login style begins*/
+.login-main {
+    background-image: url('/images/inicio_de_sesión.png');
     background-repeat: no-repeat;
-    width: 321px;
-    height: 569px;
-    margin: 0%;
-    
-    
+    width: 100vw;
+	height: 100vh;
 }
 
 .section_login {
@@ -33,7 +27,7 @@ main {
     padding: 2%;
 }
 
-input {
+.inputs {
     border: none;
     border-bottom: 1px solid black;
     background-color: rgba(198, 206, 255, 0);
@@ -62,16 +56,19 @@ input {
     background: #C6CFFF;
     border-radius: 18px;
 }
+/*Login style ends*/
 
 /*Register style begins*/
 
-body{
-    background-image: url("/images/registro_fondo.jpg");
+.mainRegister{
+    background-image: url('./images/registro_fondo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    width: 100vw;
+	height: 100vh;
 }
 
-.register{
+.sectionRegister{
 display: flex;
 position: absolute;
 left: 19.38%;
@@ -92,7 +89,7 @@ align-items: center;
    margin: 1%;                                               
 }
 
-p{
+.p{
 margin: 2%;
 font-family: 'Inter';
 font-style: normal;
@@ -104,7 +101,7 @@ align-items: center;
 color: #000000;
 }
 
-input {
+.inputRegister {
     margin-top: 5%;
     border: none;
     border-bottom: 1px solid black;
@@ -128,7 +125,7 @@ input {
     flex-direction: row;
     justify-content: center;
 }
-hr {
+.hr {
     height: 1px;
     width: 80px;
     background-color: black;
@@ -150,19 +147,30 @@ hr {
   }
   /*Register style ends*/
 
+
+/*TIMELINE STYLES BEGIN*/
+
 body {
     height: 100vh;
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
 }
-#root{
+.timeLineMainContainer{
+    background-color: #F3F8FF;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#mainContainer{
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color:deeppink;
+   /* background-color:rgb(194, 199, 122);*/
     justify-content: center;
 }
 .mainTimeline-Container{
-    background-color: aqua;
+    /*background-color: aqua;*/
     height: 100vh;
     width: 80%;
     display: flex;
@@ -171,16 +179,28 @@ body {
     flex-direction: column;
 }
 .createPostTLContainer{
-    height: 20vh;
-    width: 80%;
-    background-color: rgb(74, 84, 92);
+    height: auto;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    /*background-color: rgb(74, 84, 92);*/
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
+.userPostPicture{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+}
+.inputWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+}
 .inputText{
-    width: 40rem;
+    width: 100%;
     height: 6rem;
     font-size: 1.5rem;
     border-radius: .5rem;
@@ -188,55 +208,66 @@ body {
 .postButton{
     width: 8rem;
     height: 2.5rem;
-    margin-left: 25rem;
     font-size: 1.3rem;
     background-color: #E8D3FF;
+    border: none;
+    border-radius: .5rem;
 }
-.userContainer{
+.feedContainer{
     height: 60vh;
-    width: 80%;
-    background-color: coral;
+    width: 100%;
+    /*background-color: coral;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 1rem;
 }
 .userNameContainer{
     height: 5rem;
-    width: 10rem;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
 }
 .userPicture{
     height: 3rem;
     width: 3rem;
 }
+
 .iconsContainer{
     height: 10vh;
     width: 80%;
-    background-color: antiquewhite;
+   /* background-color: antiquewhite;*/
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    border: solid, navy, 1px;
 }
 .contentPostContainer{
-    height: 20vh;
+    height: auto; 
     width: 80%;
-    background-color: aquamarine;
+    min-height: 20vh;
+    border: 1px solid #000000;
+    /*background-color: aquamarine;*/
 }
 .iconImages{
     height: 2rem;
     width: 2rem;
 }
-.menuBarImages{
-    height: 2rem;
-    width: 2rem;
-
+.navBar{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
 }
-@media only screen and (max-width: 700px){
-    
-    
-    }
+.iconsNavBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menuBarImages{
+    height: 3rem;
+    width: 3rem;
+}
+

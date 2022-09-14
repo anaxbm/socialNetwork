@@ -39,12 +39,26 @@ export const register = () => {
   registerButton.addEventListener('click', () => {
     onNavigate('/');
   });
-  googleButton.addEventListener('click', () => {
-  });
+  googleButton.addEventListener('click', () => {});
 
-  sectionInput.append(email, emailOne, confirmEmail, emailTwo, pass, passOne, confirmPass, passTwo);
+  sectionInput.append(
+    email,
+    emailOne,
+    confirmEmail,
+    emailTwo,
+    pass,
+    passOne,
+    confirmPass,
+    passTwo
+  );
   sectionLine.append(hrone, leter, hrtwo);
-  sectionAll.append(title, sectionInput, registerButton, sectionLine, googleButton);
+  sectionAll.append(
+    title,
+    sectionInput,
+    registerButton,
+    sectionLine,
+    googleButton
+  );
 
   return sectionAll;
 };
