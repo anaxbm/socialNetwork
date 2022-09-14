@@ -44,7 +44,6 @@ export const register = () => {
   registerButton.textContent = 'Registrarse';
   googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
-  emailTwo.textContent = 'Confirmar email';
   passOne.textContent = 'Contraseña';
   passTwo.textContent = 'Confirmar contraseña';
   leter.textContent = 'ó';

@@ -7,7 +7,7 @@ import { register } from './routes/register.js';
 export const root = document.getElementById('root'); // In this node is where everything is render
 const routes = { // Object that contains the routes and what to render
   '/': login,
-  '/timeLine': timeLine,
+  '/timeline': timeLine,
   '/register': register,
 };
 
@@ -16,7 +16,7 @@ export const onNavigate = (pathname) => {
   window.history.pushState(
     {}, // State
     pathname, // Title
-    window.location.origin + pathname // Domian or url
+    window.location.origin + pathname, // Domian or url
   );
   root.removeChild(root.firstChild); //
   root.appendChild(routes[pathname]()); // Run the function to enter the pathname received
