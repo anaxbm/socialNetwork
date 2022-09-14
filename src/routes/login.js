@@ -1,7 +1,20 @@
 import { onNavigate } from '../main.js';
 
 export const login = () => {
-  // section main of login padre
+  const div = document.createElement('div');
+  const title = document.createElement('h2');
+
+  // const div = document.createElement('div');
+
+  // section header
+  /* const headerLogin = document.createElement('header');
+  headerLogin.setAttribute('class', 'login-header');
+  const title = document.createElement('h2');
+  title.textContent = 'BIENVENIDO A ANIMAL PAWNET';
+  appends the header title
+  headerLogin.append(title); */
+
+// section main of login padre
   const mainLogin = document.createElement('main');
   mainLogin.setAttribute('class', 'login-main');
 

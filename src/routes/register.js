@@ -52,8 +52,7 @@ export const register = () => {
   registerButton.addEventListener('click', () => {
     onNavigate('/');
   });
-  googleButton.addEventListener('click', () => {
-  });
+  googleButton.addEventListener('click', () => {});
 
   sectionInput.append(email, emailOne, confirmEmail, emailTwo, pass, passOne, confirmPass, passTwo);
   sectionLine.append(hrOne, leter, hrTwo);
