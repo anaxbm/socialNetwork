@@ -90,6 +90,7 @@ export const timeLine = () => {
     postUserContainer,
     userNameContainer,
     contentPostContainer,
+
     iconsContainer
   );
   iconsContainer.append(iconsImages_1, iconsImages_2, iconsImages_3);

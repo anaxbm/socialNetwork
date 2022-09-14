@@ -14,7 +14,7 @@ export const login = () => {
   appends the header title
   headerLogin.append(title); */
 
-  // section main of login padre
+// section main of login padre
   const mainLogin = document.createElement('main');
   mainLogin.setAttribute('class', 'login-main');
 
@@ -29,11 +29,11 @@ export const login = () => {
   sectionInputs.setAttribute('class', 'section_imputs');
 
   const inputEmail = document.createElement('input');
-  inputEmail.setAttribute('class', 'email_input');
+  inputEmail.setAttribute('class', 'inputs');
   const email = document.createElement('p');
   email.textContent = 'Email';
   const inputPassWord = document.createElement('input');
-  inputPassWord.setAttribute('class', 'pasword_imput');
+  inputPassWord.setAttribute('class', 'inputs');
   const pasword = document.createElement('p');
   pasword.textContent = 'pasword';
 
@@ -61,6 +61,4 @@ export const login = () => {
   mainLogin.append(sectionLogin);
 
   return mainLogin;
-
-  return div;
 };
