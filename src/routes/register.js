@@ -44,7 +44,6 @@ export const register = () => {
   registerButton.textContent = 'Registrarse';
   googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
-  emailTwo.textContent = 'Confirmar Email';
   passOne.textContent = 'Contraseña';
   passTwo.textContent = 'Confirmar contraseña';
   leter.textContent = 'ó';
@@ -52,8 +51,7 @@ export const register = () => {
   registerButton.addEventListener('click', () => {
     onNavigate('/');
   });
-  googleButton.addEventListener('click', () => {
-  });
+  googleButton.addEventListener('click', () => {});
 
   sectionInput.append(email, emailOne, confirmEmail, emailTwo, pass, passOne, confirmPass, passTwo);
   sectionLine.append(hrOne, leter, hrTwo);
