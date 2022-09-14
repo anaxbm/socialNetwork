@@ -1,4 +1,4 @@
-// Creating elements
+//Creating elements
 export const timeLine = () => {
   // contenedor principal de los otros dos divs*/
   const timeLineMainContainer = document.createElement("section");
@@ -103,3 +103,4 @@ export const timeLine = () => {
 
   return timeLineMainContainer;
 };
+

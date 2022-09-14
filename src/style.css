@@ -1,4 +1,5 @@
 * {   /* selectoe universar para eliminar todos espacios que viene por defecto en los navegadores debido a las etiquetas*/ 
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,6 +11,33 @@
     background-repeat: no-repeat;
     width: 100vw;
 	height: 100vh;
+}
+
+
+.inputs {
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: rgba(198, 206, 255, 0);
+    padding: 1%;
+   
+}
+
+
+
+   
+   
+
+      /*margin, border y padding pasan a formar parte del cálculo del ancho de la caja y no lo suman posteriormente*/
+}
+
+main {
+    background-image: url(images/inicio_de_sesión.png);
+    background-repeat: no-repeat;
+    width: 321px;
+    height: 569px;
+    margin: 0%;
+    
+    
 }
 
 .section_login {
@@ -27,7 +55,7 @@
     padding: 2%;
 }
 
-.inputs {
+input {
     border: none;
     border-bottom: 1px solid black;
     background-color: rgba(198, 206, 255, 0);
@@ -46,6 +74,7 @@
     border-radius: 18px;
 }
 
+
 #register {
     position: absolute;
     width: 140px;
@@ -56,6 +85,7 @@
     background: #C6CFFF;
     border-radius: 18px;
 }
+
 /*Login style ends*/
 
 /*Register style begins*/
@@ -69,6 +99,17 @@
 }
 
 .sectionRegister{
+
+/*Register style begins*/
+
+body{
+    background-image: url("/images/registro_fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.register{
+
 display: flex;
 position: absolute;
 left: 19.38%;
@@ -89,6 +130,7 @@ align-items: center;
    margin: 1%;                                               
 }
 
+
 .p{
 margin: 2%;
 font-family: 'Inter';
@@ -100,8 +142,28 @@ display: flex;
 align-items: center;
 color: #000000;
 }
+p{
+
+margin: 2%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 12px;
+display: flex;
+align-items: center;
+color: #000000;
+}
+
 
 .inputRegister {
+margin-top: 5%;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: rgba(198, 206, 255, 0);
+}
+input {
+
     margin-top: 5%;
     border: none;
     border-bottom: 1px solid black;
@@ -126,6 +188,15 @@ color: #000000;
     justify-content: center;
 }
 .hr {
+ height: 1px;
+    width: 80px;
+    background-color: black;
+    margin: 5%;
+    border: #000000;
+}
+
+hr {
+
     height: 1px;
     width: 80px;
     background-color: black;
@@ -148,7 +219,10 @@ color: #000000;
   /*Register style ends*/
 
 
+
 /*TIMELINE STYLES BEGIN*/
+
+
 
 body {
     height: 100vh;
@@ -270,4 +344,3 @@ body {
     height: 3rem;
     width: 3rem;
 }
-
