@@ -1,13 +1,15 @@
 // import pages
-import { timeLine } from "./routes/timeLine.js";
-import { login } from "./routes/login.js";
+import { timeLine } from './routes/timeLine.js';
+import { login } from './routes/login.js';
+import { register } from './routes/register.js';
 
 // Connect with html
-export const root = document.getElementById("root"); // In this node is where everything is render
+export const root = document.getElementById('root'); // In this node is where everything is render
 const routes = {
   // Object that contains the routes and what to render
-  "/": login,
-  "/timeLine": timeLine,
+  '/': login,
+  '/timeLine': timeLine,
+  '/register': register,
 };
 
 export const onNavigate = (pathname) => {
