@@ -1,19 +1,6 @@
 import { onNavigate } from '../main.js';
 
 export const login = () => {
-  const div = document.createElement('div');
-  const title = document.createElement('h2');
-
-  // const div = document.createElement('div');
-
-  // section header
-  /* const headerLogin = document.createElement('header');
-  headerLogin.setAttribute('class', 'login-header');
-  const title = document.createElement('h2');
-  title.textContent = 'BIENVENIDO A ANIMAL PAWNET';
-  appends the header title
-  headerLogin.append(title); */
-
 // section main of login padre
   const mainLogin = document.createElement('main');
   mainLogin.setAttribute('class', 'login-main');
@@ -48,12 +35,12 @@ export const login = () => {
   hrLeft.setAttribute('class', 'hrSecLog');
   const leterSec = document.createElement('p');
   leterSec.setAttribute('class', 'pLetSec');
-  hrLeft.textContent = 'O'; // no aparece aiudaaa
+  leterSec.textContent = 'O'; // no aparece aiudaaa
   const hrRight = document.createElement('hr');
   hrRight.setAttribute('class', 'hrSecLog');
 
   const buttonRegister = document.createElement('button');
-  buttonRegister.textContent = 'registrate';
+  buttonRegister.textContent = 'Registrate';
   buttonRegister.setAttribute('id', 'register');
   buttonRegister.setAttribute('class', 'register-button');
 

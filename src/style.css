@@ -31,7 +31,7 @@
 .animalPawnet {
     font-family: 'Jenna Sue', sans-serif;
     font-weight: 250;
-    font-size: 12vw; 
+    font-size: 10vw;   
     margin-top: -25vw; 
   
 }
@@ -70,22 +70,21 @@
     width: 35vw;
     bottom: 10%;
     background-color: black;
-    margin: 1%;
+    margin: 5%;
     border: #000000;
 }
 
-/*.pLetSec {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 3.5vw;
-    display: flex;
-    align-items: center;
-    color: #000000;
-    bottom: 3%;
-    
+p{
+margin: 1vw;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 550;
+font-size: 3.5vw;
+display: flex;
+align-items: center;
+color: #000000;
 }
-*/
+
 
 #register {
     position: absolute;
@@ -114,10 +113,10 @@
 .sectionRegister{
 display: flex;
 position: absolute;
-left: 19.38%;
-right: 19.69%;
-top: 15.49%;
-bottom: 12.32%;
+left: 12.38%;
+right: 12.69%;
+top: 10.49%;
+bottom: 10.32%;
 background: rgba(198, 207, 255, 0.5);
 border-radius: 18px;
 flex-flow: column wrap;
@@ -136,7 +135,7 @@ align-items: center;
 margin: 1vw;
 font-family: 'Inter';
 font-style: normal;
-font-weight: 600;
+font-weight: 550;
 font-size: 3.5vw;
 display: flex;
 align-items: center;
@@ -153,8 +152,8 @@ color: #000000;
   }
 
 .registerButton{
-    height: 7vh;
-    width: 22vw;
+    height: 6vh;
+    width: 30vw;
     margin-top: 7vw;
     background: #C6CFFF;
     border-radius: 18px;
