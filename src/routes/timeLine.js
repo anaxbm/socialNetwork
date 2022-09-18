@@ -27,7 +27,7 @@ export const timeLine = () => {
   const navBarText_3 = document.createElement('p');
   navBarItems_1.classList.add('iconsNavBar');
   navBarItems_2.classList.add('iconsNavBar');
-  navBarItems_1.classList.add('iconsNavBar');
+  navBarItems_3.classList.add('iconsNavBar');
 
   const menuBarIconsContainer = document.createElement('div');
 
@@ -79,7 +79,7 @@ export const timeLine = () => {
   iconsImages_3.src = './images/heart.png';
   menuBarImages_1.src = './images/pet-house.png';
   menuBarImages_2.src = './images/pet-care.png';
-  menuBarImages_3.src = './images/icon_user.png';
+  menuBarImages_3.src = './images/user.png';
 
   /* displays input text and button */
 
