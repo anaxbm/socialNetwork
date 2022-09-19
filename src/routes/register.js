@@ -25,6 +25,7 @@ export const register = () => {
   emailOne.setAttribute('class', 'p');
   const pass = document.createElement('input');
   pass.setAttribute('class', 'inputRegister');
+  pass.setAttribute('type', 'password');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
   const hrOne = document.createElement('hr');
@@ -43,6 +44,7 @@ export const register = () => {
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
+
     let userEmail = email.value;
     let userPassword = pass.value;
     addUser(userEmail, userPassword)
@@ -54,9 +56,12 @@ export const register = () => {
         const errorCode = error.code; // auth/invalid-email
         const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
       });
+
+
   });
   googleButton.addEventListener('click', () => {});
 
+  googleButton.addEventListener('click', () => {});
 
   sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
