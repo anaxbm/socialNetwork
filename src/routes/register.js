@@ -1,5 +1,7 @@
 import { onNavigate } from '../main.js';
 
+import { addUser } from '../lib/auth.js';
+
 export const register = () => {
   const mainRegister = document.createElement('main');
   mainRegister.setAttribute('class', 'mainRegister');
@@ -23,12 +25,9 @@ export const register = () => {
   emailOne.setAttribute('class', 'p');
   const pass = document.createElement('input');
   pass.setAttribute('class', 'inputRegister');
+  pass.setAttribute('type', 'password');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
-  const confirmPass = document.createElement('input');
-  confirmPass.setAttribute('class', 'inputRegister');
-  const passTwo = document.createElement('p');
-  passTwo.setAttribute('class', 'p');
   const hrOne = document.createElement('hr');
   hrOne.setAttribute('class', 'hr');
   const leter = document.createElement('p');
@@ -42,15 +41,25 @@ export const register = () => {
   googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
   passOne.textContent = 'Contraseña';
-  passTwo.textContent = 'Confirmar contraseña';
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-    onNavigate('/');
+    const userEmail = email.value;
+    const userPassword = pass.value;
+    addUser(userEmail, userPassword)
+      .then((userCredential) => {
+        onNavigate('/timeline');
+      })
+
+      .catch((error) => {
+        const errorCode = error.code; // auth/invalid-email
+        const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
+      });
   });
+
   googleButton.addEventListener('click', () => {});
 
-  sectionInput.append(email, emailOne, pass, passOne, confirmPass, passTwo);
+  sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
   sectionAll.append(sectionInput, registerButton, sectionLine, googleButton);
   mainRegister.append(title, sectionAll);
