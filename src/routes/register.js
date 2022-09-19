@@ -1,5 +1,7 @@
 import { onNavigate } from '../main.js';
 
+import { addUser } from '../lib/auth.js';
+
 export const register = () => {
   const mainRegister = document.createElement('main');
   mainRegister.setAttribute('class', 'mainRegister');
@@ -41,9 +43,24 @@ export const register = () => {
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-    onNavigate('/');
+    let userEmail = confirmEmail.value;
+    let userPassword = pass.value;
+    addUser(userEmail, userPassword)
+      .then((userCredential) => {
+        // Signed in
+        console.log('ya te gristraste');
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('no te puedes registrar', errorMessage);
+        // ..
+      });
+
+    googleButton.addEventListener('click', () => {});
   });
-  googleButton.addEventListener('click', () => {});
+
 
   sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);

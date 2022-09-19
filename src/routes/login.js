@@ -51,7 +51,9 @@ export const login = () => {
   buttonRegister.addEventListener('click', () => {
     onNavigate('/register'); // falta el archivo de registro
   });
-
+  buttonLogin.addEventListener('click', () => {
+    return onNavigate('/timeline');
+  });
   // appends the inputs to main
   sectionInputs.append(animalPawnet, inputEmail, email, inputPassWord, pasword);
   // appends the section lines
