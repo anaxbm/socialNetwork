@@ -44,9 +44,8 @@ export const register = () => {
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-
-    let userEmail = email.value;
-    let userPassword = pass.value;
+    const userEmail = email.value;
+    const userPassword = pass.value;
     addUser(userEmail, userPassword)
       .then((userCredential) => {
         onNavigate('/timeline');
@@ -56,10 +55,7 @@ export const register = () => {
         const errorCode = error.code; // auth/invalid-email
         const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
       });
-
-
   });
-  googleButton.addEventListener('click', () => {});
 
   googleButton.addEventListener('click', () => {});
 
