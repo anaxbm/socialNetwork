@@ -44,23 +44,22 @@ export const register = () => {
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-    const userEmail = email.value;
-    const userPassword = pass.value;
+
+    let userEmail = email.value;
+    let userPassword = pass.value;
     addUser(userEmail, userPassword)
       .then((userCredential) => {
-        // Signed in
-        console.log('Ya te registraste');
-        // ...
+        onNavigate('/timeline');
       })
 
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('No te puedes registrar', errorMessage);
-        // ..
+        const errorCode = error.code; // auth/invalid-email
+        const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
       });
-    onNavigate('/timeline');
+
+
   });
+  googleButton.addEventListener('click', () => {});
 
   googleButton.addEventListener('click', () => {});
 
