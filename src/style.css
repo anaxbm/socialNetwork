@@ -100,16 +100,15 @@ color: #000000;
     background: #C6CFFF;
     border-radius: 18px;
 }
-
-
 /*Login style ends*/
+
 
 /*Register style begins*/
 
 .mainRegister{
     background-image: url('./images/registro_fondo.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     width: 100vw;
 	height: 100vh;
 }
@@ -120,7 +119,7 @@ position: absolute;
 left: 12.38%;
 right: 12.69%;
 top: 18%;
-bottom: 10.32%;;
+bottom: 10.32%;
 background: rgba(198, 207, 255, 0.5);
 border-radius: 18px;
 flex-flow: column wrap;

@@ -25,10 +25,6 @@ export const register = () => {
   pass.setAttribute('class', 'inputRegister');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
-  const confirmPass = document.createElement('input');
-  confirmPass.setAttribute('class', 'inputRegister');
-  const passTwo = document.createElement('p');
-  passTwo.setAttribute('class', 'p');
   const hrOne = document.createElement('hr');
   hrOne.setAttribute('class', 'hr');
   const leter = document.createElement('p');
@@ -42,7 +38,6 @@ export const register = () => {
   googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
   passOne.textContent = 'Contraseña';
-  passTwo.textContent = 'Confirmar contraseña';
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
@@ -50,7 +45,7 @@ export const register = () => {
   });
   googleButton.addEventListener('click', () => {});
 
-  sectionInput.append(email, emailOne, pass, passOne, confirmPass, passTwo);
+  sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
   sectionAll.append(sectionInput, registerButton, sectionLine, googleButton);
   mainRegister.append(title, sectionAll);
