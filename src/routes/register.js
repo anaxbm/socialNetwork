@@ -43,23 +43,19 @@ export const register = () => {
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-    let userEmail = confirmEmail.value;
+    let userEmail = email.value;
     let userPassword = pass.value;
     addUser(userEmail, userPassword)
       .then((userCredential) => {
-        // Signed in
-        console.log('ya te gristraste');
-        // ...
+        onNavigate('/timeline');
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('no te puedes registrar', errorMessage);
-        // ..
-      });
 
-    googleButton.addEventListener('click', () => {});
+      .catch((error) => {
+        const errorCode = error.code; // auth/invalid-email
+        const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
+      });
   });
+  googleButton.addEventListener('click', () => {});
 
 
   sectionInput.append(email, emailOne, pass, passOne);
