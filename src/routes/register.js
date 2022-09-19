@@ -25,6 +25,7 @@ export const register = () => {
   emailOne.setAttribute('class', 'p');
   const pass = document.createElement('input');
   pass.setAttribute('class', 'inputRegister');
+  pass.setAttribute('type', 'password');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
   const hrOne = document.createElement('hr');
@@ -43,24 +44,25 @@ export const register = () => {
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-    let userEmail = confirmEmail.value;
-    let userPassword = pass.value;
+    const userEmail = email.value;
+    const userPassword = pass.value;
     addUser(userEmail, userPassword)
       .then((userCredential) => {
         // Signed in
-        console.log('ya te gristraste');
+        console.log('Ya te registraste');
         // ...
       })
+
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('no te puedes registrar', errorMessage);
+        console.log('No te puedes registrar', errorMessage);
         // ..
       });
-
-    googleButton.addEventListener('click', () => {});
+    onNavigate('/timeline');
   });
 
+  googleButton.addEventListener('click', () => {});
 
   sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
