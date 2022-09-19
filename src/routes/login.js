@@ -1,7 +1,7 @@
 import { onNavigate } from '../main.js';
 
 export const login = () => {
-// section main of login padre
+  // section main of login padre
   const mainLogin = document.createElement('main');
   mainLogin.setAttribute('class', 'login-main');
   const sectionLogin = document.createElement('section');
