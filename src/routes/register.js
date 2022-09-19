@@ -23,31 +23,23 @@ export const register = () => {
   email.setAttribute('class', 'inputRegister');
   const emailOne = document.createElement('p');
   emailOne.setAttribute('class', 'p');
-  const confirmEmail = document.createElement('input');
-  confirmEmail.setAttribute('class', 'inputRegister');
-  const emailTwo = document.createElement('p');
-  emailTwo.setAttribute('class', 'p');
   const pass = document.createElement('input');
   pass.setAttribute('class', 'inputRegister');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
-  const confirmPass = document.createElement('input');
-  confirmPass.setAttribute('class', 'inputRegister');
-  const passTwo = document.createElement('p');
-  passTwo.setAttribute('class', 'p');
   const hrOne = document.createElement('hr');
   hrOne.setAttribute('class', 'hr');
   const leter = document.createElement('p');
   leter.setAttribute('class', 'p');
+  leter.setAttribute('id', 'leter');
   const hrTwo = document.createElement('hr');
   hrTwo.setAttribute('class', 'hr');
 
   title.textContent = 'Animal Pawnet';
-  registerButton.textContent = 'Registrarse';
+  registerButton.textContent = 'Registrate';
   googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
   passOne.textContent = 'Contraseña';
-  passTwo.textContent = 'Confirmar contraseña';
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
@@ -69,25 +61,10 @@ export const register = () => {
     googleButton.addEventListener('click', () => {});
   });
 
-  sectionInput.append(
-    email,
-    emailOne,
-    confirmEmail,
-    emailTwo,
-    pass,
-    passOne,
-    confirmPass,
-    passTwo
-  );
-  sectionLine.append(hrOne, leter, hrTwo);
-  sectionAll.append(
-    title,
-    sectionInput,
-    registerButton,
-    sectionLine,
-    googleButton
-  );
-  mainRegister.appendChild(sectionAll);
 
+  sectionInput.append(email, emailOne, pass, passOne);
+  sectionLine.append(hrOne, leter, hrTwo);
+  sectionAll.append(sectionInput, registerButton, sectionLine, googleButton);
+  mainRegister.append(title, sectionAll);
   return mainRegister;
 };

@@ -9,3 +9,4 @@ const auth = getAuth(app);
 
 export const addUser = (userEmail, userPassword) =>
   createUserWithEmailAndPassword(auth, userEmail, userPassword);
+
