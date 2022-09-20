@@ -1,6 +1,7 @@
 import { onNavigate } from '../main.js';
 
-import { addUser } from '../lib/auth.js';
+import { addUser, googleProvider} from '../lib/auth.js';
+
 
 export const register = () => {
   const mainRegister = document.createElement('main');
@@ -38,7 +39,6 @@ export const register = () => {
 
   title.textContent = 'Animal Pawnet';
   registerButton.textContent = 'Registrate';
-  // googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
   passOne.textContent = 'Contraseña';
   leter.textContent = 'ó';
@@ -54,29 +54,17 @@ export const register = () => {
         const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
       });
   });
-  //Start of the declararion of the functions for Google button
-   const onSuccess = function onSuccess(googleUser) {
-    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-  }
-   const onFailure = function onFailure(error) {
-    console.log(error);
-  }
-   const renderButton= function renderButton() {
-    gapi.signin2.render('my-signin2', {
-      'scope': 'profile email',
-      'width': 240,
-      'height': 50,
-      'longtitle': true,
-      'theme': 'dark',
-      'onsuccess': onSuccess,
-      'onfailure': onFailure
-    });
-  //End of the declararion of the functions for Google button
+  // End of the declararion of the functions for Google button
   googleButton.addEventListener('click', () => {
-    onSuccess();
-    onFailure();
-    renderButton();
-  });
+    googleProvider()
+      .then((userCredential) => {
+        onNavigate('/timeline');
+      }).catch((error) => {
+        const errorCode = error.code; // auth/invalid-email
+        const errorMessage = error.message;  
+      })
+
+});
 
   sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
