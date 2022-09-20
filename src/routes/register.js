@@ -57,12 +57,7 @@ export const register = () => {
   // End of the declararion of the functions for Google button
   googleButton.addEventListener('click', () => {
     googleProvider()
-      .then((userCredential) => {
-        onNavigate('/timeline');
-      }).catch((error) => {
-        const errorCode = error.code; // auth/invalid-email
-        const errorMessage = error.message;  
-      })
+      
 
 });
 
