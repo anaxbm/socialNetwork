@@ -73,6 +73,7 @@ export const register = () => {
       });
   });
 
+
   sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
   sectionAll.append(sectionInput, registerButton, sectionLine, googleButton);
