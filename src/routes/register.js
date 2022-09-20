@@ -1,6 +1,7 @@
 import { onNavigate } from '../main.js';
 
-import { addUser } from '../lib/auth.js';
+import { addUser, googleProvider} from '../lib/auth.js';
+
 
 export const register = () => {
   const mainRegister = document.createElement('main');
@@ -38,7 +39,6 @@ export const register = () => {
 
   title.textContent = 'Animal Pawnet';
   registerButton.textContent = 'Registrate';
-  googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
   passOne.textContent = 'Contraseña';
   leter.textContent = 'ó';
@@ -49,15 +49,17 @@ export const register = () => {
     addUser(userEmail, userPassword)
       .then((userCredential) => {
         onNavigate('/timeline');
-      })
-
-      .catch((error) => {
+      }).catch((error) => {
         const errorCode = error.code; // auth/invalid-email
         const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
       });
   });
+  // End of the declararion of the functions for Google button
+  googleButton.addEventListener('click', () => {
+    googleProvider()
+      
 
-  googleButton.addEventListener('click', () => {});
+});
 
   sectionInput.append(email, emailOne, pass, passOne);
   sectionLine.append(hrOne, leter, hrTwo);
