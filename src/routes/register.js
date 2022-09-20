@@ -52,10 +52,10 @@ export const register = () => {
       .catch((error) => {
         const errorCode = error.code; // auth/invalid-email
         const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
-        divMessage.innerHTML = `<p> mal </p> `;
+        divMessage.innerHTML = '<p> El email o contraseña no es válido </p>';
       });
   });
-  // End of the declararion of the functions for Google button
+
   googleButton.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)
       .then(() => {
@@ -73,8 +73,7 @@ export const register = () => {
       });
   });
 
-
-  sectionInput.append(email, emailOne, pass, passOne);
+  sectionInput.append(email, emailOne, pass, passOne, divMessage);
   sectionLine.append(hrOne, leter, hrTwo);
   sectionAll.append(sectionInput, registerButton, sectionLine, googleButton);
   mainRegister.append(title, sectionAll);
