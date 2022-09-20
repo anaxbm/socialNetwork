@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
-
-import { addUser, googleProvider } from '../lib/auth.js';
+import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { addUser, auth, googleProvider } from '../lib/auth.js';
 
 export const register = () => {
   const mainRegister = document.createElement('main');
@@ -57,13 +57,19 @@ export const register = () => {
   });
   // End of the declararion of the functions for Google button
   googleButton.addEventListener('click', () => {
-    googleProvider()
-      .then((userCredential) => {
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
         onNavigate('/timeline');
       })
       .catch((error) => {
-        const errorCode = error.code; // auth/invalid-email
+        // Handle Errors here.
+        const errorCode = error.code;
         const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
       });
   });
 
