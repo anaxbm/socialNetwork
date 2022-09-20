@@ -192,14 +192,21 @@ color: #000000;
   }
 
   .googleButton{
-    height: 7vh;
-    width: 40vw;
-    border-radius: 18px;
-    font-family: 'Francois One';
-    font-size: 3.5vw;
-    color: #000000;
-    background: #FFFFFF;
-    border-radius: 18px;
+    background-image: url('./googleB/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png');
+    width: 49vw;
+    height: 6.5vh;
+    background-size:100%;
+    border: none;
+    background-color: #FFFFFF;
+  }
+  .googleButton:hover{
+    background-image: url('./googleB/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png');
+    width: 49vw;
+    height: 6.5vh;
+    background-size:100%;
+    border: none;
+    background-color: #ffffff06;
+    background-repeat: no-repeat;
   }
   /*Register style ends*/
 
