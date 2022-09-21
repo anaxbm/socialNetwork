@@ -30,7 +30,7 @@ export const login = () => {
   inputPassWord.setAttribute('id', 'inputPassword');
   inputPassWord.setAttribute('type', 'password');
   const textPasword = document.createElement('p');
-  textPasword.textContent = 'Pasword';
+  textPasword.textContent = 'Contraseña';
 
   const buttonLogin = document.createElement('button');
   buttonLogin.setAttribute('id', 'log-in');
@@ -41,7 +41,7 @@ export const login = () => {
   hrLeft.setAttribute('class', 'hrSecLog');
   const leterSec = document.createElement('p');
   leterSec.setAttribute('class', 'pLetSec');
-  leterSec.textContent = 'O';
+  leterSec.textContent = 'ó';
   const hrRight = document.createElement('hr');
   hrRight.setAttribute('class', 'hrSecLog');
 
@@ -72,7 +72,7 @@ export const login = () => {
       });
   });
   const googleButton = document.createElement('button');
-  googleButton.setAttribute('class', 'googleButton');
+  googleButton.setAttribute('class', 'googleLoging');
 
   googleButton.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)
@@ -92,26 +92,15 @@ export const login = () => {
   });
 
   // appends the inputs to main
-  sectionInputs.append(
-    animalPawnet,
-    inputEmail,
-    textEmail,
-    inputPassWord,
-    textPasword
-  );
+  sectionInputs.append(inputEmail, textEmail, inputPassWord, textPasword, buttonLogin);
   // appends the section lines
   sectionLinesHr.append(hrLeft, leterSec, hrRight);
   // appends the buttons to the main tag
-  divloginButtons.append(
-    buttonLogin,
-    buttonRegister,
-    textRegister,
-    googleButton
-  );
+  divloginButtons.append( googleButton, textRegister, buttonRegister);
 
   sectionLogin.append(sectionInputs, sectionLinesHr, divloginButtons);
 
-  mainLogin.append(sectionLogin);
+  mainLogin.append(animalPawnet, sectionLogin);
 
   return mainLogin;
 };
