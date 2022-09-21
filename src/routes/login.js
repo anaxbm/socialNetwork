@@ -1,4 +1,7 @@
 import { onNavigate } from '../main.js';
+//import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { auth, signInUser, googleProvider } from '../lib/auth.js';
+import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 export const login = () => {
   // section main of login padre
@@ -18,13 +21,16 @@ export const login = () => {
   animalPawnet.setAttribute('class', 'animalPawnet');
   animalPawnet.textContent = 'Animal Pawnet';
   const inputEmail = document.createElement('input');
+  inputEmail.setAttribute('id', 'inputEmail');
   inputEmail.setAttribute('class', 'inputs');
-  const email = document.createElement('p');
-  email.textContent = 'Email';
+  const textEmail = document.createElement('p');
+  textEmail.textContent = 'Email';
   const inputPassWord = document.createElement('input');
   inputPassWord.setAttribute('class', 'inputs');
-  const pasword = document.createElement('p');
-  pasword.textContent = 'Pasword';
+  inputPassWord.setAttribute('id', 'inputPassword');
+  inputPassWord.setAttribute('type', 'password');
+  const textPasword = document.createElement('p');
+  textPasword.textContent = 'Pasword';
 
   const buttonLogin = document.createElement('button');
   buttonLogin.setAttribute('id', 'log-in');
@@ -35,7 +41,7 @@ export const login = () => {
   hrLeft.setAttribute('class', 'hrSecLog');
   const leterSec = document.createElement('p');
   leterSec.setAttribute('class', 'pLetSec');
-  leterSec.textContent = 'O'; // no aparece aiudaaa
+  leterSec.textContent = 'O';
   const hrRight = document.createElement('hr');
   hrRight.setAttribute('class', 'hrSecLog');
 
@@ -51,15 +57,57 @@ export const login = () => {
   buttonRegister.addEventListener('click', () => {
     onNavigate('/register'); // falta el archivo de registro
   });
+
   buttonLogin.addEventListener('click', () => {
-    return onNavigate('/timeline');
+    let email = inputEmail.value;
+    let password = inputPassWord.value;
+    signInUser(email, password)
+      .then((userCredential) => {
+        onNavigate('/timeline');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('nada');
+      });
   });
+  const googleButton = document.createElement('button');
+  googleButton.setAttribute('class', 'googleButton');
+
+  googleButton.addEventListener('click', () => {
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        onNavigate('/timeline');
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  });
+
   // appends the inputs to main
-  sectionInputs.append(animalPawnet, inputEmail, email, inputPassWord, pasword);
+  sectionInputs.append(
+    animalPawnet,
+    inputEmail,
+    textEmail,
+    inputPassWord,
+    textPasword
+  );
   // appends the section lines
   sectionLinesHr.append(hrLeft, leterSec, hrRight);
   // appends the buttons to the main tag
-  divloginButtons.append(buttonLogin, buttonRegister, textRegister);
+  divloginButtons.append(
+    buttonLogin,
+    buttonRegister,
+    textRegister,
+    googleButton
+  );
 
   sectionLogin.append(sectionInputs, sectionLinesHr, divloginButtons);
 
