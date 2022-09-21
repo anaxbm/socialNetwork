@@ -1,3 +1,4 @@
+@import url('http://fonts.cdnfonts.com/css/jenna-sue');
 * {   /* selectoe universar para eliminar todos espacios que viene por defecto en los navegadores debido a las etiquetas*/ 
     margin: 0;
     padding: 0;
@@ -55,7 +56,7 @@ body {
     height: 34px;
     left: 24.38%;
     right: 19.69%;
-    top: 50%;
+    top: 40%;
     background: #C6CFFF;
     border-radius: 18px;
 }
@@ -89,7 +90,6 @@ align-items: center;
 color: #000000;
 }
 
-
 #register {
     position: absolute;
     width: 140px;
@@ -101,15 +101,15 @@ color: #000000;
     border-radius: 18px;
 }
 
-
 /*Login style ends*/
+
 
 /*Register style begins*/
 
 .mainRegister{
     background-image: url('./images/registro_fondo.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     width: 100vw;
 	height: 100vh;
 }
@@ -120,7 +120,7 @@ position: absolute;
 left: 12.38%;
 right: 12.69%;
 top: 18%;
-bottom: 10.32%;;
+bottom: 10.32%;
 background: rgba(198, 207, 255, 0.5);
 border-radius: 18px;
 flex-flow: column wrap;
@@ -190,16 +190,30 @@ color: #000000;
     margin-bottom: 5%;
     border: #000000;
   }
-
-  .googleButton{
-    height: 7vh;
-    width: 40vw;
-    border-radius: 18px;
-    font-family: 'Francois One';
-    font-size: 3.5vw;
-    color: #000000;
-    background: #FFFFFF;
-    border-radius: 18px;
+  .register-buttons-div{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+   
+.googleButton{
+    background-image: url('./googleB/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png');
+    width: 49vw;
+    height: 6.5vh;
+    background-size:100%;
+    border: none;
+    background-color: #FFFFFF;
+    margin-bottom: 8vh;
+  }
+.googleButton:hover{
+    background-image: url('./googleB/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png');
+    width: 49vw;
+    height: 6.5vh;
+    background-size:100%;
+    border: none;
+    background-color: #ffffff06;
+    background-repeat: no-repeat;
   }
   /*Register style ends*/
 
@@ -220,7 +234,7 @@ color: #000000;
     align-items: center;
    /* background-color:rgb(194, 199, 122);*/
     justify-content: center;
-}*/
+}
 .mainTimeline-Container{
     /*background-color: aqua;*/
     height: 100vh;

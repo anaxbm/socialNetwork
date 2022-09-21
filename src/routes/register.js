@@ -1,4 +1,6 @@
 import { onNavigate } from '../main.js';
+import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { addUser, auth, googleProvider } from '../lib/auth.js';
 
 export const register = () => {
   const mainRegister = document.createElement('main');
@@ -9,7 +11,6 @@ export const register = () => {
   sectionLine.setAttribute('class', 'sectionLine');
   const sectionAll = document.createElement('section');
   sectionAll.setAttribute('class', 'sectionRegister');
-
   const registerButton = document.createElement('button');
   registerButton.setAttribute('class', 'registerButton');
   const googleButton = document.createElement('button');
@@ -23,12 +24,9 @@ export const register = () => {
   emailOne.setAttribute('class', 'p');
   const pass = document.createElement('input');
   pass.setAttribute('class', 'inputRegister');
+  pass.setAttribute('type', 'password');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
-  const confirmPass = document.createElement('input');
-  confirmPass.setAttribute('class', 'inputRegister');
-  const passTwo = document.createElement('p');
-  passTwo.setAttribute('class', 'p');
   const hrOne = document.createElement('hr');
   hrOne.setAttribute('class', 'hr');
   const leter = document.createElement('p');
@@ -36,21 +34,46 @@ export const register = () => {
   leter.setAttribute('id', 'leter');
   const hrTwo = document.createElement('hr');
   hrTwo.setAttribute('class', 'hr');
+  const divMessage = document.createElement('div');
 
   title.textContent = 'Animal Pawnet';
   registerButton.textContent = 'Registrate';
-  googleButton.textContent = 'continuar con Google';
   emailOne.textContent = 'Email';
   passOne.textContent = 'Contraseña';
-  passTwo.textContent = 'Confirmar contraseña';
   leter.textContent = 'ó';
 
   registerButton.addEventListener('click', () => {
-    onNavigate('/');
+    const userEmail = email.value;
+    const userPassword = pass.value;
+    addUser(userEmail, userPassword)
+      .then((userCredential) => {
+        onNavigate('/timeline');
+      })
+      .catch((error) => {
+        const errorCode = error.code; // auth/invalid-email
+        const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
+        divMessage.innerHTML = '<p> El email o contraseña no es válido </p>';
+      });
   });
-  googleButton.addEventListener('click', () => {});
 
-  sectionInput.append(email, emailOne, pass, passOne, confirmPass, passTwo);
+  googleButton.addEventListener('click', () => {
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        onNavigate('/timeline');
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  });
+
+  sectionInput.append(email, emailOne, pass, passOne, divMessage);
   sectionLine.append(hrOne, leter, hrTwo);
   sectionAll.append(sectionInput, registerButton, sectionLine, googleButton);
   mainRegister.append(title, sectionAll);
