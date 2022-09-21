@@ -58,6 +58,9 @@ export const login = () => {
     onNavigate('/register'); // falta el archivo de registro
   });
 
+  const loginError = document.createElement('p');
+  loginError.setAttribute('class', 'error');
+
   buttonLogin.addEventListener('click', () => {
     let email = inputEmail.value;
     let password = inputPassWord.value;
@@ -68,7 +71,7 @@ export const login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('nada');
+        loginError.innerHTML = 'Email o contraseña no válido';
       });
   });
   const googleButton = document.createElement('button');
@@ -92,7 +95,7 @@ export const login = () => {
   });
 
   // appends the inputs to main
-  sectionInputs.append(inputEmail, textEmail, inputPassWord, textPasword, buttonLogin);
+  sectionInputs.append(inputEmail, textEmail, inputPassWord, textPasword, loginError, buttonLogin);
   // appends the section lines
   sectionLinesHr.append(hrLeft, leterSec, hrRight);
   // appends the buttons to the main tag
