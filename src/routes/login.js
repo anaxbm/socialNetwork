@@ -72,7 +72,7 @@ export const login = () => {
       });
   });
   const googleButton = document.createElement('button');
-  googleButton.setAttribute('class', 'googleLoging');
+  googleButton.setAttribute('class', 'googleLogin');
 
   googleButton.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)
