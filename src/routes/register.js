@@ -1,5 +1,6 @@
-import { onNavigate } from '../main.js';
 import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-unresolved
 import { addUser, auth, googleProvider } from '../lib/auth.js';
 
 export const register = () => {
@@ -18,6 +19,7 @@ export const register = () => {
   title.setAttribute('class', 'animalPawnet');
   const email = document.createElement('input');
   email.setAttribute('class', 'inputRegister');
+  email.setAttribute('id', 'userEmail');
   const emailOne = document.createElement('p');
   emailOne.setAttribute('class', 'p');
   const pass = document.createElement('input');
@@ -36,6 +38,7 @@ export const register = () => {
   registerButton.addEventListener('click', () => {
     const userEmail = email.value;
     const userPassword = pass.value;
+
     addUser(userEmail, userPassword)
       .then((userCredential) => {
         onNavigate('/timeline');

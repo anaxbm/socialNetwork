@@ -1,6 +1,6 @@
+import { signInWithPopup, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { auth, signInUser, googleProvider } from '../lib/auth.js';
-import { signInWithPopup, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 export const login = () => {
   // section main of login padre
@@ -61,8 +61,8 @@ export const login = () => {
   loginError.setAttribute('class', 'error');
 
   buttonLogin.addEventListener('click', () => {
-    let email = inputEmail.value;
-    let password = inputPassWord.value;
+    const email = inputEmail.value;
+    const password = inputPassWord.value;
     signInUser(email, password)
       .then((userCredential) => {
         onNavigate('/timeline');
@@ -98,8 +98,9 @@ export const login = () => {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
+      const userEmail = user.email;
       // ...
-      console.log(uid);
+      console.log(uid, userEmail);
     } else {
       // User is signed out
       // ...

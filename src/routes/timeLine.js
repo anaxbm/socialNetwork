@@ -1,3 +1,4 @@
+import { savePost } from '../lib/firestore.js';
 // Creating elements
 export const timeLine = () => {
   // contenedor principal de los otros dos divs*/
@@ -6,7 +7,7 @@ export const timeLine = () => {
 
   const postUserContainer = document.createElement('article');
   const inputWrapper = document.createElement('div');
-  const inputText = document.createElement('input');
+  const inputText = document.createElement('textarea');
   const postingButton = document.createElement('button');
   const userPostPicture = document.createElement('img');
 
@@ -69,7 +70,7 @@ export const timeLine = () => {
   menuBarImages_2.classList.add('menuBarImages');
   menuBarImages_3.classList.add('menuBarImages');
 
-  inputText.type = 'text';
+  // inputText.type = 'text';
   postingButton.textContent = 'publicar';
   userPicture.src = './images/usuario.png';
   userPostPicture.src = './images/usuario.png';
@@ -90,8 +91,7 @@ export const timeLine = () => {
     postUserContainer,
     userNameContainer,
     contentPostContainer,
-
-    iconsContainer
+    iconsContainer,
   );
   iconsContainer.append(iconsImages_1, iconsImages_2, iconsImages_3);
 
@@ -101,6 +101,11 @@ export const timeLine = () => {
   menuBarIconsContainer.append(navBarItems_1, navBarItems_2, navBarItems_3);
   timeLineContainer.append(postUserContainer, feed, menuBarIconsContainer);
   timeLineMainContainer.append(timeLineContainer);
+
+  postingButton.addEventListener('click', () => {
+    const userPost = inputText.value;
+    savePost(userPost);
+  });
 
   return timeLineMainContainer;
 };
