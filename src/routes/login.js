@@ -1,7 +1,6 @@
+import { signInWithPopup, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
-//import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { auth, signInUser, googleProvider } from '../lib/auth.js';
-import { signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 export const login = () => {
   // section main of login padre
@@ -30,7 +29,7 @@ export const login = () => {
   inputPassWord.setAttribute('id', 'inputPassword');
   inputPassWord.setAttribute('type', 'password');
   const textPasword = document.createElement('p');
-  textPasword.textContent = 'Pasword';
+  textPasword.textContent = 'Contraseña';
 
   const buttonLogin = document.createElement('button');
   buttonLogin.setAttribute('id', 'log-in');
@@ -41,7 +40,7 @@ export const login = () => {
   hrLeft.setAttribute('class', 'hrSecLog');
   const leterSec = document.createElement('p');
   leterSec.setAttribute('class', 'pLetSec');
-  leterSec.textContent = 'O';
+  leterSec.textContent = 'ó';
   const hrRight = document.createElement('hr');
   hrRight.setAttribute('class', 'hrSecLog');
 
@@ -58,9 +57,12 @@ export const login = () => {
     onNavigate('/register'); // falta el archivo de registro
   });
 
+  const loginError = document.createElement('p');
+  loginError.setAttribute('class', 'error');
+
   buttonLogin.addEventListener('click', () => {
-    let email = inputEmail.value;
-    let password = inputPassWord.value;
+    const email = inputEmail.value;
+    const password = inputPassWord.value;
     signInUser(email, password)
       .then((userCredential) => {
         onNavigate('/timeline');
@@ -68,11 +70,11 @@ export const login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('nada');
+        loginError.innerHTML = 'Email o contraseña no válido';
       });
   });
   const googleButton = document.createElement('button');
-  googleButton.setAttribute('class', 'googleButton');
+  googleButton.setAttribute('class', 'googleLogin');
 
   googleButton.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)
@@ -91,27 +93,30 @@ export const login = () => {
       });
   });
 
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      const userEmail = user.email;
+      // ...
+      console.log(uid, userEmail);
+    } else {
+      // User is signed out
+      // ...
+      console.log('No tas conectao');
+    }
+  });
   // appends the inputs to main
-  sectionInputs.append(
-    animalPawnet,
-    inputEmail,
-    textEmail,
-    inputPassWord,
-    textPasword
-  );
+  sectionInputs.append(inputEmail, textEmail, inputPassWord, textPasword, loginError, buttonLogin);
   // appends the section lines
   sectionLinesHr.append(hrLeft, leterSec, hrRight);
   // appends the buttons to the main tag
-  divloginButtons.append(
-    buttonLogin,
-    buttonRegister,
-    textRegister,
-    googleButton
-  );
+  divloginButtons.append(googleButton, textRegister, buttonRegister);
 
   sectionLogin.append(sectionInputs, sectionLinesHr, divloginButtons);
 
-  mainLogin.append(sectionLogin);
+  mainLogin.append(animalPawnet, sectionLogin);
 
   return mainLogin;
 };
