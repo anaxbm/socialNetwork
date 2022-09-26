@@ -1,4 +1,5 @@
-import { savePost } from '../lib/firestore.js';
+import { savePost, getPosts, onGetPosts } from '../lib/firestore.js';
+
 // Creating elements
 export const timeLine = () => {
   // contenedor principal de los otros dos divs*/
@@ -107,5 +108,27 @@ export const timeLine = () => {
     savePost(userPost);
   });
 
+  //window.addEventListener('DOMContentLoaded', async (e) => {
+    // querySnapShop traer datos que existen en el momento
+    /*const posts = await getPosts();
+    posts.forEach((doc) => {
+      console.log(doc.data());
+      contentPostContainer.innerHTML += `
+      <div class="userPost">
+    <h3 class="userName">${task.title}</h3>
+    <p>${task.description}</p>
+    <div> `
+
+    });
+  });
+
+   //onGetTasks((querySnapshot) => {
+    //feed.innerHTML = "";
+
+    /*querySnapshot.forEach((doc) => {
+      const task = doc.data();
+}*/
+
+      
   return timeLineMainContainer;
-};
+}
