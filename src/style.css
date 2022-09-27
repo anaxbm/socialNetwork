@@ -9,29 +9,16 @@ body {
     height: 100vh;
     /*background-color: blueviolet;*/
 }
-/*Login style begins*/
-.login-main {
+/*Login and register style begins*/
+.main{
     background-image: url('./images/registro_fondo.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     width: 100vw;
 	height: 100vh;
 }
-.section_login {
-display: flex;
-position: absolute;
-left: 12.38%;
-right: 12.69%;
-top: 18%;
-bottom: 10.32%;
-background: rgba(198, 207, 255, 0.5);
-border-radius: 18px;
-flex-flow: column wrap;
-padding: 3vw;
-align-items: center;
-}
 
-.animalPawnet {
+.animal-pawnet {
     position: absolute;
     left: 28%;
     top: 8%;
@@ -40,6 +27,19 @@ align-items: center;
     font-size: 13vw;   
     margin: 1vw;     
     text-shadow: 4px 4px 4px #C6CFFF;   
+}
+.section_login_register {
+    display: flex;
+    position: absolute;
+    left: 12.38%;
+    right: 12.69%;
+    top: 18%;
+    bottom: 10.32%;
+    background: rgba(198, 207, 255, 0.5);
+    border-radius: 18px;
+    flex-flow: column wrap;
+    padding: 3vw;
+    align-items: center;
 }
 
 .inputs {
@@ -51,7 +51,7 @@ align-items: center;
     background-color: rgba(198, 206, 255, 0);
 }
 
-.sectionLinesHr {
+.section-lines-hr {
     margin-top: 5vw;
     margin-bottom: 5vw;
     display: flex;
@@ -59,7 +59,7 @@ align-items: center;
     justify-content: center;
 }
 
-.hrSecLog {
+.hr-sec-log{
     height: 1px;
     width: 35vw;
     bottom: 10%;
@@ -68,7 +68,7 @@ align-items: center;
     border: #000000;
 }
 
-p{
+.p{
     margin-top: 1vw;
     font-family: 'Inter';
     font-style: normal;
@@ -86,7 +86,7 @@ p{
   justify-content: center;
   }
 
-#log-in {
+.login-button {
     height: 6vh;
     width: 40vw;
     background: #C6CFFF;
@@ -97,7 +97,7 @@ p{
     margin-top: 2vh;
     margin-left: 4.5vw;
 }
-.googleLogin{
+.google-login{
     background-image: url('./googleB/google_signin_buttons/web/1x/btn_google_signin_light_normal_web.png');
     width: 49vw;
     height: 6.5vh;
@@ -107,7 +107,7 @@ p{
     margin-bottom: 4vh;
 }
 
-.googleLogin:hover{
+.google-login:hover{
     background-image: url('./googleB/google_signin_buttons/web/1x/btn_google_signin_dark_normal_web.png');
     width: 49vw;
     height: 6.5vh;
@@ -115,12 +115,12 @@ p{
     border: none;
     background-color: #ffffff06;
     background-repeat: no-repeat;
-  }
+}
 
-.textRegister{
+.text-register{
     margin-bottom: 2vh;
 }
-#register {
+.go-register-button {
     height: 6vh;
     width: 40vw;
     background: #C6CFFF;
@@ -129,55 +129,31 @@ p{
     font-size: 4.5vw;
     color: #000000;
 }
-
-/*Login style ends*/
-
-
-/*Register style begins*/
-
-.mainRegister{
-    background-image: url('./images/registro_fondo.jpg');
-    background-repeat: no-repeat;
-    background-size:cover;
-    width: 100vw;
-	height: 100vh;
+.error{
+    margin-top: 5vw;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 4.5vw;
+    display: flex;
+    align-items: center;
+    color: #790252;  
 }
+/*Login and register style ends*/
 
-.sectionRegister{
-display: flex;
-position: absolute;
-left: 12.38%;
-right: 12.69%;
-top: 18%;
-bottom: 10.32%;
-background: rgba(198, 207, 255, 0.5);
-border-radius: 18px;
-flex-flow: column wrap;
-padding: 3vw;
-align-items: center;
-}
 
-/* .p{
-margin-top: 1vw;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 550;
-font-size: 4.5vw;
-display: flex;
-align-items: center;
-color: #000000;
-} */
+/*Differences between register and login page style begins*/
 
-.inputRegister {
+.input-register {
     width: 50vw;
     height: 3vh;
     margin-top: 17vw;
     border: none;
     border-bottom: 1px solid black;
     background-color: rgba(198, 206, 255, 0);
-  }
+}
 
-.registerButton{
+.register-button{
     height: 6vh;
     width: 40vw;
     margin-top: 30vw;
@@ -187,18 +163,8 @@ color: #000000;
     font-size: 4.5vw;
     color: #000000;
     }
-    .error{
-        margin-top: 5vw;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 800;
-        font-size: 4.5vw;
-        display: flex;
-        align-items: center;
-        color: #790252;  
-    }
     
-  /*Register style ends*/
+  /*Differences between register and login page style ends*/
 
 /*TIMELINE STYLES BEGIN*/
 

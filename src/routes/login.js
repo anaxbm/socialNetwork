@@ -5,19 +5,19 @@ import { auth, signInUser, googleProvider } from '../lib/auth.js';
 export const login = () => {
   // section main of login padre
   const mainLogin = document.createElement('main');
-  mainLogin.setAttribute('class', 'login-main');
+  mainLogin.setAttribute('class', 'main');
   const sectionLogin = document.createElement('section');
-  sectionLogin.setAttribute('class', 'section_login');
+  sectionLogin.setAttribute('class', 'section_login_register');
   // add the buttons of login or register este lo cambio a mi nodo padre?
   const divloginButtons = document.createElement('div');
   divloginButtons.setAttribute('class', 'register-buttons-div');
   const sectionInputs = document.createElement('section');
   sectionInputs.setAttribute('class', 'section_imputs');
   const sectionLinesHr = document.createElement('section');
-  sectionLinesHr.setAttribute('class', 'sectionLinesHr');
+  sectionLinesHr.setAttribute('class', 'section-lines-hr');
 
   const animalPawnet = document.createElement('h2');
-  animalPawnet.setAttribute('class', 'animalPawnet');
+  animalPawnet.setAttribute('class', 'animal-pawnet');
   animalPawnet.textContent = 'Animal Pawnet';
   const inputEmail = document.createElement('input');
   inputEmail.setAttribute('id', 'inputEmail');
@@ -37,20 +37,20 @@ export const login = () => {
   buttonLogin.textContent = 'Inicia sesión';
 
   const hrLeft = document.createElement('hr');
-  hrLeft.setAttribute('class', 'hrSecLog');
+  hrLeft.setAttribute('class', 'hr-sec-log');
   const leterSec = document.createElement('p');
-  leterSec.setAttribute('class', 'pLetSec');
+  leterSec.setAttribute('class', '.p');
   leterSec.textContent = 'ó';
   const hrRight = document.createElement('hr');
-  hrRight.setAttribute('class', 'hrSecLog');
+  hrRight.setAttribute('class', 'hr-sec-log');
 
   const buttonRegister = document.createElement('button');
   buttonRegister.textContent = 'Registrate';
   buttonRegister.setAttribute('id', 'register');
-  buttonRegister.setAttribute('class', 'register-button');
+  buttonRegister.setAttribute('class', 'go-register-button');
 
   const textRegister = document.createElement('p');
-  textRegister.setAttribute('class', 'textRegister');
+  textRegister.setAttribute('class', 'text-register');
   textRegister.textContent = '¿No tienes cuenta?';
 
   buttonRegister.addEventListener('click', () => {
@@ -74,7 +74,7 @@ export const login = () => {
       });
   });
   const googleButton = document.createElement('button');
-  googleButton.setAttribute('class', 'googleLogin');
+  googleButton.setAttribute('class', 'google-login');
 
   googleButton.addEventListener('click', () => {
     signInWithPopup(auth, googleProvider)

@@ -5,25 +5,25 @@ import { addUser, auth, googleProvider } from '../lib/auth.js';
 
 export const register = () => {
   const mainRegister = document.createElement('main');
-  mainRegister.setAttribute('class', 'mainRegister');
+  mainRegister.setAttribute('class', 'main');
   const sectionInput = document.createElement('section');
   sectionInput.setAttribute('class', 'sectionInput');
   const sectionLine = document.createElement('section');
   sectionLine.setAttribute('class', 'sectionLine');
   const sectionAll = document.createElement('section');
-  sectionAll.setAttribute('class', 'sectionRegister');
+  sectionAll.setAttribute('class', 'section_login_register');
   const registerButton = document.createElement('button');
-  registerButton.setAttribute('class', 'registerButton');
+  registerButton.setAttribute('class', 'register-button');
 
   const title = document.createElement('h2');
-  title.setAttribute('class', 'animalPawnet');
+  title.setAttribute('class', 'animal-pawnet');
   const email = document.createElement('input');
-  email.setAttribute('class', 'inputRegister');
+  email.setAttribute('class', 'input-register');
   email.setAttribute('id', 'userEmail');
   const emailOne = document.createElement('p');
   emailOne.setAttribute('class', 'p');
   const pass = document.createElement('input');
-  pass.setAttribute('class', 'inputRegister');
+  pass.setAttribute('class', 'input-register');
   pass.setAttribute('type', 'password');
   const passOne = document.createElement('p');
   passOne.setAttribute('class', 'p');
