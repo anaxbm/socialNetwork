@@ -2,7 +2,29 @@
 import { timeLine } from './routes/timeLine.js';
 import { login } from './routes/login.js';
 import { register } from './routes/register.js';
+import { auth } from '../lib/auth.js';
+import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
+export const userInfo = onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    const userEmail = user.email;
+    //console.log(uid, userEmail);
+    const userJean = auth.currentUser;
+    const jeanEmail = userJean.email;
+    console.log(jeanEmail);
+    onNavigate('/timeline');
+  } else {
+    onNavigate('/');
+    console.log('No tas conectao');
+  }
+});
+
+/*export const userEmailInfo = function (email) {
+  return userEmail;
+};
+userEmailInfo(userEmail);
+console.log(userEmailInfo);*/
 // Connect with html
 export const root = document.getElementById('root'); // In this node is where everything is render
 const routes = {
