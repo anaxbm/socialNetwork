@@ -57,5 +57,5 @@ window.onpopstate = () => {
   //console.log(routes);
   root.appendChild(routes[window.location.pathname]()); // se ejectuta la funcion que es el value del key y renderiza nuevo componente
 };
-
+console.log(pages);
 root.appendChild(pages());
