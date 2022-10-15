@@ -42,7 +42,7 @@ export const onNavigate = (pathname) => {
     window.location.origin + pathname // pidiendo que concatene el pathname
   );
 
-  root.removeChild(root.firstChild);
+  root.removeChild(root?.firstChild);
   root.appendChild(routes[pathname]()); //pathname es / y se ejecuta, el value,una funcion que regresa un componente
   /*console.log(routes[pathname]());*/
 };
