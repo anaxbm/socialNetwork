@@ -1,4 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js';
+//llamar al metodo initializeApp de firebase
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAl9F0rJ14doFfzi2GxMZ_8BOuCD_XQfHQ',
@@ -8,4 +9,5 @@ export const firebaseConfig = {
   messagingSenderId: '721670460526',
   appId: '1:721670460526:web:dbf4ffdbe8939afa5b027f',
 };
-export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig); // crea la aplicación
+//app guarda la instancia de la aplicación

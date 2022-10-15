@@ -48,52 +48,15 @@ export const login = () => {
   buttonRegister.textContent = 'Registrate';
   buttonRegister.setAttribute('id', 'register');
   buttonRegister.setAttribute('class', 'go-register-button');
+  const loginError = document.createElement('p');
+  loginError.setAttribute('class', 'error');
+
+  const googleButton = document.createElement('button');
+  googleButton.setAttribute('class', 'google-login');
 
   const textRegister = document.createElement('p');
   textRegister.setAttribute('class', 'text-register');
   textRegister.textContent = '¿No tienes cuenta?';
-
-  buttonRegister.addEventListener('click', () => {
-    onNavigate('/register'); // falta el archivo de registro
-  });
-
-  const loginError = document.createElement('p');
-  loginError.setAttribute('class', 'error');
-
-  buttonLogin.addEventListener('click', () => {
-    const email = inputEmail.value;
-    const password = inputPassWord.value;
-    signInUser(email, password)
-      .then((userCredential) => {
-        onNavigate('/timeline');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        loginError.innerHTML = 'Email o contraseña no válido';
-      });
-  });
-  const googleButton = document.createElement('button');
-  googleButton.setAttribute('class', 'google-login');
-
-  googleButton.addEventListener('click', () => {
-    signInWithPopup(auth, googleProvider)
-      .then(() => {
-        onNavigate('/timeline');
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-  });
-
-  // appends the inputs to main
   sectionInputs.append(
     inputEmail,
     textEmail,
@@ -110,6 +73,47 @@ export const login = () => {
   sectionLogin.append(sectionInputs, sectionLinesHr, divloginButtons);
 
   mainLogin.append(animalPawnet, sectionLogin);
+
+  buttonLogin.addEventListener('click', () => {
+    const email = inputEmail.value;
+    const userpassword = inputPassword.value;
+
+    signInUser(auth, email, userpassword)
+      .then((userCredential) => {
+        //console.log(email);
+        // console.log(userpassword);
+        onNavigate('/timeline');
+      })
+      .catch((error) => {
+        const errorCode = error.code; // auth/invalid-email
+        const errorMessage = error.message; // Firebase: Error (auth/invalid-email)
+        loginError.innerHTML = 'Email o contraseña no válido';
+        // console.log('que esta pasando');
+      });
+  });
+
+  buttonRegister.addEventListener('click', () => {
+    onNavigate('/register');
+    /*console.log('registrandome');*/
+  });
+
+  googleButton.addEventListener('click', () => {
+    //console.log(auth);
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        onNavigate('/timeline');
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  });
 
   return mainLogin;
 };

@@ -1,5 +1,10 @@
-import { savePost, getPosts, onGetPosts } from '../lib/firestore.js';
-import { auth } from '../lib/auth.js';
+import { getPosts, dataBaseListener } from '../lib/firestore.js';
+import {
+  fireBaseToJSObj,
+  renderPosts,
+  disableButton,
+  createPost,
+} from '../utils.js';
 
 // Creating elements
 export const timeLine = () => {
@@ -10,7 +15,9 @@ export const timeLine = () => {
   const postUserContainer = document.createElement('article');
   const inputWrapper = document.createElement('div');
   const inputText = document.createElement('textarea');
+  inputText.setAttribute('minlength', '1');
   const postingButton = document.createElement('button');
+  postingButton.setAttribute('disabled', '');
   const userPostPicture = document.createElement('img');
 
   const feed = document.createElement('div');
@@ -23,127 +30,130 @@ export const timeLine = () => {
   const contentPostContainer = document.createElement('div');
   const iconsContainer = document.createElement('div');
 
-  const navBarItems_1 = document.createElement('div');
-  const navBarItems_2 = document.createElement('div');
-  const navBarItems_3 = document.createElement('div');
-  const navBarText_1 = document.createElement('p');
-  const navBarText_2 = document.createElement('p');
-  const navBarText_3 = document.createElement('p');
-  navBarItems_1.classList.add('iconsNavBar');
-  navBarItems_2.classList.add('iconsNavBar');
-  navBarItems_3.classList.add('iconsNavBar');
+  const findHomeContainer = document.createElement('div');
+  const adoptContainer = document.createElement('div');
+  const userProfileContainer = document.createElement('div');
+  const findHomeText = document.createElement('p');
+  const adoptText = document.createElement('p');
+  const userProfileText = document.createElement('p');
+  findHomeContainer.classList.add('iconsNavBar');
+  adoptContainer.classList.add('iconsNavBar');
+  userProfileContainer.classList.add('iconsNavBar');
 
   const menuBarIconsContainer = document.createElement('div');
 
   /* adding classes */
-  /* dentro de maintimeline debe estar */
   timeLineMainContainer.classList.add('timeLineMainContainer');
   timeLineContainer.classList.add('mainTimeline-Container');
   postUserContainer.classList.add('createPostTLContainer');
   inputWrapper.classList.add('inputWrapper');
+  inputWrapper.setAttribute('id', 'input-Wrapper');
   inputText.classList.add('inputText');
+  inputText.setAttribute('id', 'user-post');
+  inputText.spellcheck = true;
   postingButton.classList.add('postButton');
+  postingButton.setAttribute('id', 'create-post');
 
   feed.classList.add('feedContainer');
-  //userPost.classList.add('userPost');
+  // userPost.classList.add('userPost');
   userNameContainer.classList.add('userNameContainer');
   userName.classList.add('userName');
   userPicture.classList.add('userPicture');
   userPostPicture.classList.add('userPostPicture');
   contentPostContainer.classList.add('contentPostContainer');
   iconsContainer.classList.add('iconsContainer'); // same class to apply same height
-  navBarText_1.classList.add('navBarText');
-  navBarText_2.classList.add('navBarText');
-  navBarText_3.classList.add('navBarText');
-  navBarText_1.textContent = 'Busca un hogar';
-  navBarText_2.textContent = 'Adoptar';
-  navBarText_3.textContent = 'Mi cuenta';
+  findHomeText.classList.add('navBarText');
+  adoptText.classList.add('navBarText');
+  userProfileText.classList.add('navBarText');
+  findHomeText.textContent = 'Busca un hogar';
+  adoptText.textContent = 'Adoptar';
+  userProfileText.textContent = 'Mi cuenta';
   menuBarIconsContainer.classList.add('navBar');
 
-  /* creating  sub-containers for bar and icons to like and edit */
-  const iconsImages_1 = document.createElement('img');
-  const iconsImages_2 = document.createElement('img');
-  const iconsImages_3 = document.createElement('img');
-  const menuBarImages_1 = document.createElement('img');
-  const menuBarImages_2 = document.createElement('img');
-  const menuBarImages_3 = document.createElement('img');
-  iconsImages_1.classList.add('iconImages');
-  iconsImages_2.classList.add('iconImages');
-  iconsImages_3.classList.add('iconImages');
-  menuBarImages_1.classList.add('menuBarImages');
-  menuBarImages_2.classList.add('menuBarImages');
-  menuBarImages_3.classList.add('menuBarImages');
+  /* posts icons */
+  const iconImagesDelete = document.createElement('img');
+  const iconsImagesEdit = document.createElement('img');
+  const iconsImagesLike = document.createElement('img');
+  /* navBar icons */
+  const findHome = document.createElement('img');
+  const adopt = document.createElement('img');
+  const userProfile = document.createElement('img');
 
-  // inputText.type = 'text';
-  postingButton.textContent = 'publicar';
+  iconImagesDelete.classList.add('iconImages');
+  iconImagesDelete.setAttribute('id', 'delete-btn');
+
+  iconsImagesEdit.classList.add('iconImages');
+  iconsImagesEdit.setAttribute('id', 'edit-btn');
+
+  iconsImagesLike.classList.add('iconImages', 'iconLike');
+  iconsImagesLike.setAttribute('id', 'like-btn');
+
+  /* navBar icons */
+  findHome.classList.add('menuBarImages');
+  adopt.classList.add('menuBarImages');
+  userProfile.classList.add('menuBarImages');
+
+  postingButton.textContent = 'Publicar';
   userPicture.src = './images/usuario.png';
   userPostPicture.src = './images/usuario.png';
-  //userName.textContent = 'Adahi Gallardo';
-  iconsImages_1.src = './images/bin.png';
-  iconsImages_2.src = './images/editar.png';
-  iconsImages_3.src = './images/heart.png';
-  menuBarImages_1.src = './images/pet-house.png';
-  menuBarImages_2.src = './images/pet-care.png';
-  menuBarImages_3.src = './images/user.png';
+  /* posts icons images */
+  iconImagesDelete.src = './images/bin.png';
+  iconsImagesEdit.src = './images/editar.png';
+  iconsImagesLike.src = './images/heart.png';
+  /* navBar images */
+  findHome.src = './images/pet-house.png';
+  adopt.src = './images/pet-care.png';
+  userProfile.src = './images/user.png';
 
   /* displays input text and button */
 
   inputWrapper.append(inputText, postingButton);
   postUserContainer.append(userPostPicture, inputWrapper);
   userNameContainer.append(userPicture, userName);
-  iconsContainer.append(iconsImages_1, iconsImages_2, iconsImages_3);
-  //feed.append(userPost);
-  /* userPost.append(
-    postUserContainer,
-    userNameContainer,
-    contentPostContainer,
-    iconsContainer
-  );*/
-  navBarItems_1.append(menuBarImages_1, navBarText_1);
-  navBarItems_2.append(menuBarImages_2, navBarText_2);
-  navBarItems_3.append(menuBarImages_3, navBarText_3);
-  menuBarIconsContainer.append(navBarItems_1, navBarItems_2, navBarItems_3);
+  iconsContainer.append(iconImagesDelete, iconsImagesEdit, iconsImagesLike);
+
+  findHomeContainer.append(findHome, findHomeText);
+  adoptContainer.append(adopt, adoptText);
+  userProfileContainer.append(userProfile, userProfileText);
+  menuBarIconsContainer.append(
+    findHomeContainer,
+    adoptContainer,
+    userProfileContainer
+  );
   timeLineContainer.append(postUserContainer, feed, menuBarIconsContainer);
   timeLineMainContainer.append(timeLineContainer);
 
+  //Funcionalidad de desabilitar boton cuando no hay texto en el input
+  inputText.addEventListener('input', () => {
+    disableButton(inputText, postingButton);
+  });
+
+  //Funcionalidad para guardar un nuevo post
   postingButton.addEventListener('click', () => {
-    const userJean = auth.currentUser;
-    const jeanEmail = userJean.email;
-    const userPost = inputText.value;
-    savePost(jeanEmail, userPost);
+    createPost(inputText, postingButton);
   });
 
-  window.addEventListener('DOMContentLoaded', async (e) => {
-    // querySnapShop traer datos que existen en el momento
-    const posts = await getPosts();
-    console.log(posts);
-    posts.forEach((doc) => {
-      console.log(doc);
-      const post = doc.data();
-      console.log(doc.data());
-      feed.innerHTML = `
-      <div class="userPost">
-      <div class = "userNameContainer">
-      <img class="userPicture" src="./images/usuario.png">
-      <h4 class="userName">${post.userEmail}</h4>
-       </div>
-      <div class = "contentPostContainer">
-      <p>${post.userPost}</p>
-      </div>
-      <div class=iconsContainer> 
-      <img class="iconImages" src="./images/bin.png">
-      <img class="iconImages" src="./images/editar.png">
-      <img class="iconImages" src="./images/heart.png">
-      <div>
-    <div> `;
-    });
+  //Funcionalidad para obtener y renderizar posts cuando carga la pagina
+  window.addEventListener('DOMContentLoaded', async () => {
+    //extrae objeto docs que son todos los posts
+    const { docs } = await getPosts();
+    const posts = fireBaseToJSObj(docs);
+    renderPosts(posts, feed);
   });
-  //onGetTasks((querySnapshot) => {
-  //feed.innerHTML = "";
 
-  /*querySnapshot.forEach((doc) => {
-      const task = doc.data();
-}*/
+  dataBaseListener(
+    /* vuelve a traer los posts y renderiza */
+    async () => {
+      //extrae objeto docs
+      const { docs } = await getPosts();
+      //console.log(await getPosts());
+      //deconstruccion de objetos
+      //const {apellido} = {nombre: 'maria', apellido: 'guzmman'}
+      // transformando data de firebase a js objects
+      const posts = fireBaseToJSObj(docs);
+      renderPosts(posts, feed);
+    }
+  );
 
   return timeLineMainContainer;
 };
