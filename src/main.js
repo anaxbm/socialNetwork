@@ -42,7 +42,7 @@ export const onNavigate = (pathname) => {
     window.location.origin + pathname // pidiendo que concatene el pathname
   );
 
-  root.removeChild(root?.firstChild);
+  root.removeChild(root.firstChild);
   root.appendChild(routes[pathname]()); //pathname es / y se ejecuta, el value,una funcion que regresa un componente
   /*console.log(routes[pathname]());*/
 };
@@ -57,5 +57,5 @@ window.onpopstate = () => {
   //console.log(routes);
   root.appendChild(routes[window.location.pathname]()); // se ejectuta la funcion que es el value del key y renderiza nuevo componente
 };
-console.log(pages);
+
 root.appendChild(pages());
